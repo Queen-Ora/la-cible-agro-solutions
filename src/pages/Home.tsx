@@ -123,7 +123,7 @@ const Home = () => {
       </section>
 
       {/* About Preview Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-card border-y border-border">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -226,8 +226,18 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-primary">
-        <div className="container-custom text-center">
+      <section className="relative section-padding overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroImage}
+            alt="Ferme agro-pastorale"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/85" />
+        </div>
+        
+        <div className="container-custom text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -238,7 +248,7 @@ const Home = () => {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
               Prêt à lancer votre projet agro-pastoral ?
             </h2>
-            <p className="text-primary-foreground/80 text-lg mb-8">
+            <p className="text-primary-foreground/90 text-lg mb-8">
               Prenez rendez-vous avec nos experts et bénéficiez d'un accompagnement 
               personnalisé pour concrétiser votre vision.
             </p>
