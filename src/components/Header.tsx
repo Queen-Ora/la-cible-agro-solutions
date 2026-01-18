@@ -44,10 +44,10 @@ const Header = () => {
             <img src="/src/assets/header-logo.png" alt="logo" />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-xl font-bold text-foreground">
+            <span className={`font-serif text-xl font-bold transition-colors ${isScrolled ? "text-foreground" : "text-white"}`}>
               La Cible
             </span>
-            <span className="text-xs text-muted-foreground -mt-1">SARL</span>
+            <span className={`text-xs transition-colors -mt-1 ${isScrolled ? "text-muted-foreground" : "text-white/80"}`}>SARL</span>
           </div>
         </Link>
 
