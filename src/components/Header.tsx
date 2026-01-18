@@ -39,15 +39,15 @@ const Header = () => {
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 overflow-hidden">
-            <img src="/src/assets/header-logo.png" alt="logo" className="w-full h-full object-contain" />
+        <Link to="/" className="flex items-center gap-2 group">
+          <div className="w-20 h-15 rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+            <img src="/src/assets/header-logo.png" alt="logo" />
           </div>
-          <div className="flex flex-col justify-center">
-            <span className={`font-serif text-xl font-bold leading-tight transition-colors ${isScrolled ? "text-foreground" : "text-white"}`}>
+          <div className="flex flex-col">
+            <span className={`font-serif text-xl font-bold transition-colors ${isScrolled ? "text-foreground" : "text-white"}`}>
               La Cible
             </span>
-            <span className={`text-xs leading-tight transition-colors ${isScrolled ? "text-muted-foreground" : "text-white/80"}`}>SARL</span>
+            <span className={`text-xs transition-colors -mt-1 ${isScrolled ? "text-muted-foreground" : "text-white/80"}`}>SARL</span>
           </div>
         </Link>
 
