@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionTitle from "@/components/SectionTitle";
@@ -9,6 +10,8 @@ import { servicesData } from "@/data/servicesData";
 import { statsData } from "@/data/statsData";
 
 import heroImage from "@/assets/hero-farm.jpg";
+import heroConsulting from "@/assets/hero-consulting.jpg";
+import heroFormation from "@/assets/hero-formation.jpg";
 import serviceConsultation from "@/assets/service-consultation.jpg";
 import serviceConseil from "@/assets/service-conseil.jpg";
 import serviceFerme from "@/assets/service-ferme.jpg";
@@ -21,77 +24,161 @@ const serviceImages: Record<string, string> = {
   "service-formation.jpg": serviceFormation,
 };
 
+// Carousel slides data
+const carouselSlides = [
+  {
+    image: heroImage,
+    badge: "Cabinet de conseil en agrobusiness • Depuis 2021",
+    title: "La Cible SARL, leader en création et en gestion de",
+    highlight: "fermes agro-pastorales rentables",
+    description:
+      "Fondé par Apélété, notre cabinet accompagne les entrepreneurs agricoles vers la réussite. Plus de 3 000 clients nous font confiance à travers l'Afrique, l'Europe, l'Asie et les États-Unis.",
+  },
+  {
+    image: heroConsulting,
+    badge: "Conseil & Accompagnement personnalisé",
+    title: "Un accompagnement expert pour",
+    highlight: "transformer votre vision en réalité",
+    description:
+      "Nos consultants expérimentés vous guident à chaque étape de votre projet agricole, de l'étude de faisabilité jusqu'à la mise en œuvre opérationnelle.",
+  },
+  {
+    image: heroFormation,
+    badge: "Formations professionnelles certifiées",
+    title: "Développez vos compétences avec",
+    highlight: "nos formations en agrobusiness",
+    description:
+      "Bénéficiez de programmes de formation adaptés à tous les niveaux pour maîtriser les techniques modernes de l'agriculture et de l'élevage.",
+  },
+];
+
+const SLIDE_DURATION = 6000; // 6 seconds per slide
+
 const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [progress, setProgress] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    setProgress(0);
+  }, []);
+
+  useEffect(() => {
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          return 0;
+        }
+        return prev + (100 / (SLIDE_DURATION / 50));
+      });
+    }, 50);
+
+    const slideInterval = setInterval(nextSlide, SLIDE_DURATION);
+
+    return () => {
+      clearInterval(progressInterval);
+      clearInterval(slideInterval);
+    };
+  }, [nextSlide]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setProgress(0);
+  };
+
   return (
     <main>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={heroImage}
-            alt="Ferme agro-pastorale africaine"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/70 to-foreground/40" />
-        </div>
+      {/* Hero Carousel Section */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Images */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0 z-0"
+          >
+            <img
+              src={carouselSlides[currentSlide].image}
+              alt="Ferme agro-pastorale africaine"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/70 to-foreground/40" />
+          </motion.div>
+        </AnimatePresence>
 
         {/* Content */}
         <div className="container-custom relative z-10 py-32">
           <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground text-sm font-medium mb-6 backdrop-blur-sm border border-primary/30">
-                Cabinet de conseil en agrobusiness • Depuis 2021
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-background leading-tight mb-6"
-            >
-              La Cible SARL, leader en création et en gestion de{" "}
-              <span className="text-accent">fermes agro-pastorales rentables</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-background/80 mb-8 leading-relaxed"
-            >
-              Fondé par Apélété, notre cabinet accompagne les entrepreneurs agricoles 
-              vers la réussite. Plus de 3 000 clients nous font confiance à travers 
-              l'Afrique, l'Europe, l'Asie et les États-Unis.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Button asChild size="lg" className="btn-accent rounded-full text-base px-8">
-                <Link to="/services">
-                  Découvrir nos services
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-full text-base px-8 bg-background/10 border-background/30 text-background hover:bg-background hover:text-foreground"
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`content-${currentSlide}`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
               >
-                <Link to="/appointment">Prendre un rendez-vous</Link>
-              </Button>
-            </motion.div>
+                <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground text-sm font-medium mb-6 backdrop-blur-sm border border-primary/30">
+                  {carouselSlides[currentSlide].badge}
+                </span>
+
+                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-background leading-tight mb-6">
+                  {carouselSlides[currentSlide].title}{" "}
+                  <span className="text-accent">{carouselSlides[currentSlide].highlight}</span>
+                </h1>
+
+                <p className="text-lg md:text-xl text-background/80 mb-8 leading-relaxed">
+                  {carouselSlides[currentSlide].description}
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button asChild size="lg" className="btn-accent rounded-full text-base px-8">
+                    <Link to="/services">
+                      Découvrir nos services
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full text-base px-8 bg-background/10 border-background/30 text-background hover:bg-background hover:text-foreground"
+                  >
+                    <Link to="/appointment">Prendre un rendez-vous</Link>
+                  </Button>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
+        </div>
+
+        {/* Slide Indicators with Progress Bar */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3">
+          {carouselSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className="group relative flex items-center justify-center"
+              aria-label={`Aller à la slide ${index + 1}`}
+            >
+              <div className="relative w-12 h-1.5 rounded-full bg-background/30 overflow-hidden">
+                {currentSlide === index ? (
+                  <motion.div
+                    className="absolute inset-y-0 left-0 bg-accent rounded-full"
+                    style={{ width: `${progress}%` }}
+                  />
+                ) : (
+                  <div
+                    className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                      index < currentSlide ? "bg-background/60" : "bg-transparent"
+                    }`}
+                  />
+                )}
+              </div>
+            </button>
+          ))}
         </div>
 
         {/* Scroll Indicator */}
@@ -99,7 +186,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10"
         >
           <div className="w-6 h-10 rounded-full border-2 border-background/50 flex items-start justify-center p-2">
             <motion.div
