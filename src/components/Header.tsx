@@ -41,7 +41,7 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="w-20 h-15 rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
-            <img src="/src/assets/Gemini_Generated_Image_oyzprjoyzprjoyzp-removebg-preview.png" alt="logo" />
+            <img src="/src/assets/header-logo.png" alt="logo" />
           </div>
           <div className="flex flex-col">
             <span className="font-serif text-xl font-bold text-foreground">
