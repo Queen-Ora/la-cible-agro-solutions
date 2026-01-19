@@ -302,18 +302,8 @@ Notre rôle est simple : vous aider à prendre les bonnes décisions, au bon mom
       </section>
 
       {/* Services Preview Section */}
-      <section className="section-padding relative overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={serviceConsultation}
-            alt="Services background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-background/90" />
-        </div>
-        
-        <div className="container-custom relative z-10">
+      <section className="section-padding bg-muted">
+        <div className="container-custom">
           <SectionTitle
             subtitle="Nos services"
             title="Des solutions adaptées à vos besoins"
@@ -348,16 +338,16 @@ Notre rôle est simple : vous aider à prendre les bonnes décisions, au bon mom
         </div>
       </section>
 
-      {/* CTA Section - Nous contacter */}
+      {/* CTA Section */}
       <section className="relative section-padding overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src={heroConsulting}
-            alt="Nous contacter"
+            src={heroImage}
+            alt="Ferme agro-pastorale"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-primary/80" />
+          <div className="absolute inset-0 bg-primary/85" />
         </div>
         
         <div className="container-custom text-center relative z-10">
