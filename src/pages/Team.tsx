@@ -6,6 +6,8 @@ import SectionTitle from "@/components/SectionTitle";
 import { teamData, TeamMember } from "@/data/teamData";
 
 import founderImage from "@/assets/founder-apelete.jpg";
+import heroConsulting from "@/assets/hero-consulting.jpg";
+import serviceFormation from "@/assets/service-formation.jpg";
 
 const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }) => {
   const isFounder = member.isFounder;
@@ -159,13 +161,23 @@ const Team = () => {
       </section>
 
       {/* Team Section */}
-      <section className="section-padding bg-muted relative overflow-hidden">
+      <section className="section-padding relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={serviceFormation}
+            alt="Notre équipe background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/90" />
+        </div>
+
         {/* Decorative background elements */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.05 }}
           viewport={{ once: true }}
-          className="absolute top-20 left-10 text-primary"
+          className="absolute top-20 left-10 text-primary z-[1]"
         >
           <Sparkles className="w-40 h-40" />
         </motion.div>
@@ -173,7 +185,7 @@ const Team = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.05 }}
           viewport={{ once: true }}
-          className="absolute bottom-20 right-10 text-accent"
+          className="absolute bottom-20 right-10 text-accent z-[1]"
         >
           <Sparkles className="w-32 h-32" />
         </motion.div>
@@ -245,21 +257,31 @@ const Team = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-primary relative overflow-hidden">
+      <section className="section-padding relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroConsulting}
+            alt="Travaillez avec nos experts"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/80" />
+        </div>
+
         {/* Decorative elements */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 0.1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="absolute left-0 top-0 w-64 h-64 bg-accent rounded-full blur-3xl"
+          className="absolute left-0 top-0 w-64 h-64 bg-accent rounded-full blur-3xl z-[1]"
         />
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 0.1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="absolute right-0 bottom-0 w-64 h-64 bg-background rounded-full blur-3xl"
+          className="absolute right-0 bottom-0 w-64 h-64 bg-background rounded-full blur-3xl z-[1]"
         />
         
         <div className="container-custom text-center relative z-10">
