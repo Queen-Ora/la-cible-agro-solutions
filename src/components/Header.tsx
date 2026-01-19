@@ -16,6 +16,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,10 +46,10 @@ const Header = () => {
             <img src="/src/assets/header-logo.png" alt="logo" />
           </div>
           <div className="flex flex-col">
-            <span className={`font-serif text-xl font-bold transition-colors ${isScrolled ? "text-foreground" : "text-white"}`}>
+            <span className={`font-serif text-xl font-bold transition-colors ${isHomePage && !isScrolled ? "text-white" : "text-foreground"}`}>
               La Cible
             </span>
-            <span className={`text-xs transition-colors -mt-1 ${isScrolled ? "text-muted-foreground" : "text-white/80"}`}>SARL</span>
+            <span className={`text-xs transition-colors -mt-1 ${isHomePage && !isScrolled ? "text-white/80" : "text-muted-foreground"}`}>SARL</span>
           </div>
         </Link>
 
@@ -58,20 +60,20 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={`text-sm font-medium transition-colors relative ${
-                isScrolled
+                isHomePage && !isScrolled
                   ? location.pathname === link.path
-                    ? "text-primary hover:text-primary"
-                    : "text-foreground/80 hover:text-primary"
-                  : location.pathname === link.path
                     ? "text-white hover:text-white/80"
                     : "text-white/90 hover:text-white"
+                  : location.pathname === link.path
+                    ? "text-primary hover:text-primary"
+                    : "text-foreground/80 hover:text-primary"
               }`}
             >
               {link.label}
               {location.pathname === link.path && (
                 <motion.div
                   layoutId="activeNav"
-                  className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${isScrolled ? "bg-primary" : "bg-white"}`}
+                  className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${isHomePage && !isScrolled ? "bg-white" : "bg-primary"}`}
                 />
               )}
             </Link>
