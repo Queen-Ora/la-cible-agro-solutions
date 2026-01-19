@@ -269,8 +269,30 @@ Notre rôle est simple : vous aider à prendre les bonnes décisions, au bon mom
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-card">
-        <div className="container-custom">
+      <section className="section-padding bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+        {/* Decorative elements */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 0.1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 0.1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl translate-x-1/2 translate-y-1/2"
+        />
+        
+        <div className="container-custom relative z-10">
+          <SectionTitle
+            subtitle="Nos résultats"
+            title="La Cible en chiffres"
+            description="Des résultats concrets qui témoignent de notre engagement et de notre expertise dans l'accompagnement de vos projets agricoles."
+          />
+          
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {statsData.map((stat, index) => (
               <StatCard key={stat.id} stat={stat} index={index} />
