@@ -1,123 +1,97 @@
 import { Link } from "react-router-dom";
-import { Leaf, Mail, Phone, MapPin, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-secondary-foreground">
-      <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-foreground text-background border-t-4 border-primary">
+      <div className="container-custom py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Brand Column */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <img src="/src/assets/header-logo.png" alt="" />
+              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                <img src="/src/assets/header-logo.png" alt="" className="w-6 h-6" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-xl font-bold text-secondary-foreground">
-                  La Cible
-                </span>
-                <span className="text-xs text-secondary-foreground/70 -mt-1">
-                  SARL
-                </span>
-              </div>
+              <span className="font-serif text-lg font-bold text-background">
+                La Cible <span className="text-xs text-background/70">SARL</span>
+              </span>
             </Link>
-            <p className="text-secondary-foreground/80 text-sm leading-relaxed">
-              Leader en création et en gestion de fermes agro-pastorales rentables. 
-              Votre partenaire de confiance depuis 2021.
+            <p className="text-background/70 text-xs leading-relaxed">
+              Leader en création et en gestion de fermes agro-pastorales rentables.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold">Liens rapides</h4>
-            <nav className="flex flex-col gap-2">
-              <Link to="/" className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors text-sm">
-                Accueil
-              </Link>
-              <Link to="/about" className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors text-sm">
-                Qui sommes-nous
-              </Link>
-              <Link to="/services" className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors text-sm">
-                Nos services
-              </Link>
-              <Link to="/team" className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors text-sm">
-                Notre équipe
-              </Link>
-              <Link to="/contact" className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors text-sm">
-                Nous contacter
-              </Link>
+          <div>
+            <h4 className="font-serif text-sm font-semibold mb-3">Liens rapides</h4>
+            <nav className="flex flex-col gap-1.5">
+              {[
+                { to: "/", label: "Accueil" },
+                { to: "/about", label: "Qui sommes-nous" },
+                { to: "/services", label: "Nos services" },
+                { to: "/team", label: "Notre équipe" },
+                { to: "/contact", label: "Contact" },
+              ].map((link) => (
+                <Link 
+                  key={link.to} 
+                  to={link.to} 
+                  className="text-background/70 hover:text-background transition-colors text-xs"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold">Contact</h4>
-            <div className="flex flex-col gap-3">
-              <a href="tel:+22800000000" className="flex items-center gap-2 text-secondary-foreground/80 hover:text-secondary-foreground transition-colors text-sm">
-                <Phone className="w-4 h-4" />
+          <div>
+            <h4 className="font-serif text-sm font-semibold mb-3">Contact</h4>
+            <div className="flex flex-col gap-2">
+              <a href="tel:+22800000000" className="flex items-center gap-2 text-background/70 hover:text-background transition-colors text-xs">
+                <Phone className="w-3.5 h-3.5" />
                 <span>+228 00 00 00 00</span>
               </a>
-              <a href="mailto:contact@lacible-sarl.com" className="flex items-center gap-2 text-secondary-foreground/80 hover:text-secondary-foreground transition-colors text-sm">
-                <Mail className="w-4 h-4" />
+              <a href="mailto:contact@lacible-sarl.com" className="flex items-center gap-2 text-background/70 hover:text-background transition-colors text-xs">
+                <Mail className="w-3.5 h-3.5" />
                 <span>contact@lacible-sarl.com</span>
               </a>
-              <div className="flex items-start gap-2 text-secondary-foreground/80 text-sm">
-                <MapPin className="w-4 h-4 mt-0.5" />
-                <span>Lomé, Togo<br /></span>
+              <div className="flex items-center gap-2 text-background/70 text-xs">
+                <MapPin className="w-3.5 h-3.5" />
+                <span>Lomé, Togo</span>
               </div>
             </div>
           </div>
 
           {/* Social Links */}
-          <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold">Suivez-nous</h4>
-            <div className="flex gap-3">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Tiktok"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-secondary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
+          <div>
+            <h4 className="font-serif text-sm font-semibold mb-3">Suivez-nous</h4>
+            <div className="flex gap-2">
+              {[
+                { icon: Facebook, label: "Facebook" },
+                { icon: Linkedin, label: "LinkedIn" },
+                { icon: Twitter, label: "Twitter" },
+                { icon: Instagram, label: "Instagram" },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href="#"
+                  className="w-8 h-8 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
-            <p className="text-secondary-foreground/60 text-xs">
-              Présence internationale :<br />
+            <p className="text-background/50 text-xs mt-2">
               Afrique • Europe • Asie • États-Unis
             </p>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-secondary-foreground/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-secondary-foreground/60 text-sm text-center md:text-left">
-              © 2021 - {new Date().getFullYear()} La Cible SARL. Tous droits réservés.
-            </p>
-            <p className="text-secondary-foreground/60 text-sm">
-              Fondé par <span className="text-secondary-foreground font-medium">Apélété</span>
-            </p>
-          </div>
+        <div className="mt-6 pt-4 border-t border-background/10 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-background/50">
+          <p>© 2021 - {new Date().getFullYear()} La Cible SARL. Tous droits réservés.</p>
+          <p>Fondé par <span className="text-background font-medium">Apélété</span></p>
         </div>
       </div>
     </footer>

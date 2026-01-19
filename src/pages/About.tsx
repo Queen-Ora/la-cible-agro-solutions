@@ -86,40 +86,80 @@ const About = () => {
 
           <div className="max-w-4xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-card rounded-2xl p-8 md:p-12 shadow-soft"
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="bg-card rounded-2xl p-8 md:p-12 shadow-soft relative overflow-hidden group"
             >
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              {/* Decorative gradient */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              />
+              
+              <motion.p 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-muted-foreground text-lg leading-relaxed mb-6 relative z-10"
+              >
                 En 2021, <strong className="text-foreground">Apélété</strong>,
                 entrepreneur visionnaire et passionné d'agrobusiness, fonde La
                 Cible SARL avec une conviction forte : l'agriculture africaine
                 possède un potentiel immense qui ne demande qu'à être exploité
                 de manière professionnelle et durable.
-              </p>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              </motion.p>
+              <motion.p 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="text-muted-foreground text-lg leading-relaxed mb-6 relative z-10"
+              >
                 Fort de son expérience et de sa connaissance approfondie du
                 secteur agro-pastoral, Apélété a créé un cabinet capable
                 d'offrir un accompagnement complet : de la consultation initiale
                 à la gestion opérationnelle des fermes, en passant par la
                 formation et le conseil stratégique.
-              </p>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              </motion.p>
+              <motion.p 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="text-muted-foreground text-lg leading-relaxed relative z-10"
+              >
                 Aujourd'hui, La Cible SARL est fière d'avoir accompagné plus de
                 3 000 clients à travers quatre continents, contribuant ainsi au
                 développement d'une agriculture moderne, rentable et
                 respectueuse de l'environnement.
-              </p>
+              </motion.p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="section-padding bg-muted">
-        <div className="container-custom">
+      <section className="section-padding bg-muted relative overflow-hidden">
+        {/* Decorative background */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 0.08, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="absolute -top-20 -left-20 w-80 h-80 bg-primary rounded-full blur-3xl"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 0.08, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="absolute -bottom-20 -right-20 w-80 h-80 bg-accent rounded-full blur-3xl"
+        />
+        
+        <div className="container-custom relative z-10">
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -143,16 +183,27 @@ const About = () => {
             ].map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, rotateY: 15 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card rounded-xl p-8 shadow-soft text-center"
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{ y: -10, scale: 1.03 }}
+                className="bg-card rounded-xl p-8 shadow-soft text-center group cursor-pointer"
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                  <item.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-4">
+                <motion.div 
+                  className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 relative"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <item.icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform" />
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-primary/20"
+                    initial={{ scale: 0 }}
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">

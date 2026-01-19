@@ -116,8 +116,17 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="section-padding bg-muted">
-        <div className="container-custom">
+      <section className="section-padding bg-muted relative overflow-hidden">
+        {/* Decorative background */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 0.08, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="absolute -left-20 top-1/2 -translate-y-1/2 w-80 h-80 bg-primary rounded-full blur-3xl"
+        />
+        
+        <div className="container-custom relative z-10">
           <SectionTitle
             subtitle="Notre processus"
             title="Comment nous travaillons"
@@ -149,23 +158,39 @@ const Services = () => {
             ].map((item, index) => (
               <motion.div
                 key={item.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                whileHover={{ y: -8, scale: 1.03 }}
+                className="relative group"
               >
-                <div className="bg-card rounded-xl p-6 shadow-soft h-full">
-                  <div className="font-serif text-4xl font-bold text-primary/20 mb-4">
+                <div className="bg-card rounded-xl p-6 shadow-soft h-full relative overflow-hidden">
+                  {/* Hover gradient effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                  
+                  <motion.div 
+                    className="font-serif text-4xl font-bold text-primary/20 mb-4 relative z-10"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
+                  >
                     {item.step}
-                  </div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+                  </motion.div>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-2 relative z-10 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                  <p className="text-muted-foreground text-sm relative z-10">{item.description}</p>
                 </div>
                 {index < 3 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-primary/30" />
+                  <motion.div 
+                    className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-primary/30"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 + index * 0.15, duration: 0.3 }}
+                  />
                 )}
               </motion.div>
             ))}
