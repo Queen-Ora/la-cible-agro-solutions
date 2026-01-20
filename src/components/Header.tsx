@@ -33,11 +33,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-soft py-3"
-          : "bg-transparent py-5"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-soft py-3"
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
@@ -46,10 +42,10 @@ const Header = () => {
             <img src="/src/assets/header-logo.png" alt="logo" />
           </div>
           <div className="flex flex-col">
-            <span className={`font-serif text-xl font-bold transition-colors ${isHomePage && !isScrolled ? "text-white" : "text-foreground"}`}>
+            <span className="font-serif text-xl font-bold text-foreground">
               La Cible
             </span>
-            <span className={`text-xs transition-colors -mt-1 ${isHomePage && !isScrolled ? "text-white/80" : "text-muted-foreground"}`}>SARL</span>
+            <span className="text-xs text-muted-foreground -mt-1">SARL</span>
           </div>
         </Link>
 
@@ -60,20 +56,16 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={`text-sm font-medium transition-colors relative ${
-                isHomePage && !isScrolled
-                  ? location.pathname === link.path
-                    ? "text-white hover:text-white/80"
-                    : "text-white/90 hover:text-white"
-                  : location.pathname === link.path
-                    ? "text-primary hover:text-primary"
-                    : "text-foreground/80 hover:text-primary"
+                location.pathname === link.path
+                  ? "text-primary hover:text-primary"
+                  : "text-foreground/80 hover:text-primary"
               }`}
             >
               {link.label}
               {location.pathname === link.path && (
                 <motion.div
                   layoutId="activeNav"
-                  className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${isHomePage && !isScrolled ? "bg-white" : "bg-primary"}`}
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-primary"
                 />
               )}
             </Link>
