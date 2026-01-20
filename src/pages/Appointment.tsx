@@ -15,6 +15,7 @@ import { useToast } from "@/hooks/use-toast";
 import { servicesData } from "@/data/servicesData";
 import { z } from "zod";
 import { Link } from "react-router-dom";
+import PaymentOptions from "@/components/PaymentOptions";
 
 const appointmentSchema = z.object({
   name: z.string().trim().min(2, "Le nom doit contenir au moins 2 caractères").max(100),
@@ -348,42 +349,12 @@ const Appointment = () => {
         </div>
       </section>
 
-      {/* Info Section */}
+      {/* Payment Section */}
       {!isSubmitted && (
         <section className="section-padding bg-muted">
           <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-serif text-2xl font-bold text-foreground mb-6">
-                Pourquoi prendre rendez-vous ?
-              </h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  {
-                    title: "Consultation gratuite",
-                    description: "Premier échange sans engagement pour comprendre vos besoins.",
-                  },
-                  {
-                    title: "Conseils d'experts",
-                    description: "Bénéficiez de l'expertise d'Apélété et de son équipe.",
-                  },
-                  {
-                    title: "Accompagnement personnalisé",
-                    description: "Un plan d'action adapté à votre projet spécifique.",
-                  },
-                ].map((item, index) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="bg-card rounded-xl p-6 shadow-soft"
-                  >
-                    <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm">{item.description}</p>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="max-w-3xl mx-auto">
+              <PaymentOptions title="Réglez votre consultation" />
             </div>
           </div>
         </section>
