@@ -92,24 +92,20 @@ const Appointment = () => {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <main className="pt-24">
+    <main className="pt-20">
       {/* Hero Section */}
-      <section className="section-padding bg-muted">
+      <section className="py-8 bg-muted">
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block text-sm font-semibold uppercase tracking-wider text-primary mb-3">
-              Prenez rendez-vous
-            </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-3">
               Prendre un rendez-vous
             </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Planifiez une consultation avec nos experts pour discuter de votre 
-              projet agro-pastoral et bénéficier de conseils personnalisés.
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Planifiez une consultation avec nos experts pour discuter de votre projet.
             </p>
           </motion.div>
         </div>
