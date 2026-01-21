@@ -10,12 +10,18 @@ export interface HomeTeamMember {
   };
 }
 
+import teamApelete from "@/assets/team-apelete.jpg";
+import teamKokou from "@/assets/team-kokou.jpg";
+import teamAma from "@/assets/team-ama.jpg";
+import teamKomi from "@/assets/team-komi.jpg";
+import teamAkossiwa from "@/assets/team-akossiwa.jpg";
+
 export const homeTeamData: HomeTeamMember[] = [
   {
     id: "apelete",
     name: "Apélété AGBODJAN",
     role: "Fondateur & Directeur Général",
-    image: "/placeholder.svg",
+    image: teamApelete,
     socials: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -26,7 +32,7 @@ export const homeTeamData: HomeTeamMember[] = [
     id: "kokou",
     name: "Kokou MENSAH",
     role: "Responsable Conseil",
-    image: "/placeholder.svg",
+    image: teamKokou,
     socials: {
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
@@ -36,7 +42,7 @@ export const homeTeamData: HomeTeamMember[] = [
     id: "ama",
     name: "Ama ADADE",
     role: "Responsable Formation",
-    image: "/placeholder.svg",
+    image: teamAma,
     socials: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -46,7 +52,7 @@ export const homeTeamData: HomeTeamMember[] = [
     id: "komi",
     name: "Komi AKLESSO",
     role: "Expert Agronome",
-    image: "/placeholder.svg",
+    image: teamKomi,
     socials: {
       linkedin: "https://linkedin.com",
     },
@@ -55,7 +61,7 @@ export const homeTeamData: HomeTeamMember[] = [
     id: "akossiwa",
     name: "Akossiwa DZIFA",
     role: "Chargée de Projet",
-    image: "/placeholder.svg",
+    image: teamAkossiwa,
     socials: {
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",

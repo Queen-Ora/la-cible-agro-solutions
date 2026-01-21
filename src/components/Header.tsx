@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import PaymentDropdown from "@/components/PaymentDropdown";
 
 const navLinks = [
   { path: "/", label: "Accueil" },
@@ -72,8 +73,9 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden lg:block">
+        {/* CTA Buttons */}
+        <div className="hidden lg:flex items-center gap-3">
+          <PaymentDropdown variant="header" />
           <Button asChild className="btn-primary rounded-full px-6">
             <Link to="/appointment">Prendre un rendez-vous</Link>
           </Button>
@@ -112,9 +114,12 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="btn-primary rounded-full mt-4">
-                <Link to="/appointment">Prendre un rendez-vous</Link>
-              </Button>
+              <div className="flex flex-col gap-3 mt-4">
+                <PaymentDropdown variant="header" className="w-full" />
+                <Button asChild className="btn-primary rounded-full">
+                  <Link to="/appointment">Prendre un rendez-vous</Link>
+                </Button>
+              </div>
             </nav>
           </motion.div>
         )}

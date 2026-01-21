@@ -1,3 +1,9 @@
+import testimonialKodjo from "@/assets/testimonial-kodjo.jpg";
+import testimonialAfi from "@/assets/testimonial-afi.jpg";
+import testimonialMessan from "@/assets/testimonial-messan.jpg";
+import testimonialAdjoa from "@/assets/testimonial-adjoa.jpg";
+import testimonialEdem from "@/assets/testimonial-edem.jpg";
+
 export interface Testimonial {
   id: string;
   name: string;
@@ -14,7 +20,7 @@ export const testimonialsData: Testimonial[] = [
     name: "Kodjo AMOUZOU",
     role: "Entrepreneur Agricole",
     company: "Ferme Espoir",
-    image: "/placeholder.svg",
+    image: testimonialKodjo,
     content: "Grâce à La Cible SARL, j'ai pu structurer mon projet de ferme avicole et obtenir un rendement exceptionnel dès la première année. L'accompagnement personnalisé a fait toute la différence.",
     rating: 5,
   },
@@ -23,7 +29,7 @@ export const testimonialsData: Testimonial[] = [
     name: "Afi KPEGBA",
     role: "Investisseuse",
     company: "AgroInvest Togo",
-    image: "/placeholder.svg",
+    image: testimonialAfi,
     content: "Une équipe professionnelle et dévouée. Leurs conseils m'ont permis de diversifier mes investissements agricoles avec succès. Je recommande vivement leurs services.",
     rating: 5,
   },
@@ -31,7 +37,7 @@ export const testimonialsData: Testimonial[] = [
     id: "3",
     name: "Messan HOUNKPE",
     role: "Éleveur",
-    image: "/placeholder.svg",
+    image: testimonialMessan,
     content: "La formation en élevage de poulets de chair que j'ai suivie m'a ouvert les yeux sur les bonnes pratiques. Aujourd'hui, mon exploitation est rentable et bien gérée.",
     rating: 5,
   },
@@ -40,7 +46,7 @@ export const testimonialsData: Testimonial[] = [
     name: "Adjoa LAWSON",
     role: "Agricultrice",
     company: "Bio Légumes",
-    image: "/placeholder.svg",
+    image: testimonialAdjoa,
     content: "L'étude de faisabilité réalisée par La Cible m'a évité de nombreuses erreurs. Leur expertise du terrain togolais est inégalée. Merci pour tout !",
     rating: 5,
   },
@@ -48,7 +54,7 @@ export const testimonialsData: Testimonial[] = [
     id: "5",
     name: "Edem TOGBUI",
     role: "Consultant Agricole",
-    image: "/placeholder.svg",
+    image: testimonialEdem,
     content: "En tant que professionnel du secteur, je reconnais la qualité du travail de La Cible SARL. Leur approche méthodique et leur connaissance du marché sont exemplaires.",
     rating: 5,
   },
