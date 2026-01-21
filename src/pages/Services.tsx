@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 import SectionTitle from "@/components/SectionTitle";
 import { servicesData, Service } from "@/data/servicesData";
 import PaymentDropdown from "@/components/PaymentDropdown";
-import TeamCarousel from "@/components/home/TeamCarousel";
+
 
 import serviceConsultation from "@/assets/service-consultation.jpg";
 import serviceConseil from "@/assets/service-conseil.jpg";
 import serviceFerme from "@/assets/service-ferme.jpg";
 import serviceFormation from "@/assets/service-formation.jpg";
+import bannerBgServices from "@/assets/banner-bg-services.jpg";
 
 const iconMap: Record<string, LucideIcon> = {
   MessageSquare,
@@ -102,8 +103,18 @@ const Services = () => {
   return (
     <main className="pt-24">
       {/* Hero Section */}
-      <section className="section-padding bg-muted">
-        <div className="container-custom text-center">
+      <section className="section-padding relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={bannerBgServices}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/85" />
+        </div>
+        
+        <div className="container-custom text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -132,8 +143,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Team Carousel */}
-      <TeamCarousel />
 
       {/* Process Section */}
       <section className="section-padding bg-muted relative overflow-hidden">
