@@ -4,8 +4,10 @@ import { Users, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionTitle from "@/components/SectionTitle";
 import { teamData, TeamMember } from "@/data/teamData";
+import TeamCarousel from "@/components/home/TeamCarousel";
 
 import founderImage from "@/assets/founder-apelete.jpg";
+import bannerBgTeam from "@/assets/banner-bg-team.jpg";
 
 const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }) => {
   const isFounder = member.isFounder;
@@ -113,8 +115,18 @@ const Team = () => {
   return (
     <main className="pt-24">
       {/* Hero Section */}
-      <section className="section-padding bg-muted">
-        <div className="container-custom text-center">
+      <section className="section-padding relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={bannerBgTeam}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/85" />
+        </div>
+        
+        <div className="container-custom text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -157,6 +169,9 @@ const Team = () => {
           </div>
         </div>
       </section>
+
+      {/* Team Carousel */}
+      <TeamCarousel />
 
       {/* Team Section */}
       <section className="section-padding bg-muted relative overflow-hidden">
