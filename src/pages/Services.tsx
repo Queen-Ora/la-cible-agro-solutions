@@ -4,6 +4,8 @@ import { ArrowRight, MessageSquare, Compass, Tractor, GraduationCap, LucideIcon,
 import { Button } from "@/components/ui/button";
 import SectionTitle from "@/components/SectionTitle";
 import { servicesData, Service } from "@/data/servicesData";
+import PaymentDropdown from "@/components/PaymentDropdown";
+import TeamCarousel from "@/components/home/TeamCarousel";
 
 import serviceConsultation from "@/assets/service-consultation.jpg";
 import serviceConseil from "@/assets/service-conseil.jpg";
@@ -77,6 +79,7 @@ const ServiceDetailCard = ({ service, index }: { service: Service; index: number
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </Button>
+          <PaymentDropdown variant="service" />
           {service.pdfFile && (
             <Button
               asChild
@@ -128,6 +131,9 @@ const Services = () => {
           ))}
         </div>
       </section>
+
+      {/* Team Carousel */}
+      <TeamCarousel />
 
       {/* Process Section */}
       <section className="section-padding bg-muted relative overflow-hidden">
