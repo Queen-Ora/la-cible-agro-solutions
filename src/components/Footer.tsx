@@ -9,9 +9,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Brand Column */}
           <div className="space-y-2">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                <img src="/src/assets/header-logo.png" alt="" className="w-6 h-6" />
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center overflow-hidden border-2 border-primary/20">
+                <img src="/src/assets/header-logo.png" alt="logo" className="w-8 h-8 object-contain" />
               </div>
               <span className="font-serif text-lg font-bold text-background">
                 La Cible <span className="text-xs text-background/70">SARL</span>
