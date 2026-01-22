@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
-import { ArrowRight, CheckCircle, CreditCard } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionTitle from "@/components/SectionTitle";
 import ServiceCard from "@/components/ServiceCard";
@@ -9,7 +9,6 @@ import StatCard from "@/components/StatCard";
 import TeamCarousel from "@/components/home/TeamCarousel";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import PricingSection from "@/components/home/PricingSection";
-import PaymentOptions from "@/components/PaymentOptions";
 import { servicesData } from "@/data/servicesData";
 import { statsData } from "@/data/statsData";
 
@@ -350,20 +349,6 @@ Notre rôle est simple : vous aider à prendre les bonnes décisions, au bon mom
 
       {/* Pricing Section */}
       <PricingSection />
-
-      {/* Payment Section */}
-      <section className="section-padding bg-card border-y border-border">
-        <div className="container-custom">
-          <SectionTitle
-            subtitle="Paiement sécurisé"
-            title="Effectuez votre paiement"
-            description="Choisissez votre mode de paiement préféré pour régler vos services en toute sécurité."
-          />
-          <div className="max-w-4xl mx-auto">
-            <PaymentOptions showTitle={false} />
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="relative section-padding overflow-hidden">
