@@ -1,11 +1,14 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Linkedin, Twitter, Facebook } from "lucide-react";
+import { Linkedin, Facebook } from "lucide-react";
+import TikTokIcon from "@/components/icons/TikTokIcon";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import SectionTitle from "@/components/SectionTitle";
 import { homeTeamData, HomeTeamMember } from "@/data/homeTeamData";
@@ -42,14 +45,14 @@ const TeamMemberCard = ({ member, index }: { member: HomeTeamMember; index: numb
                 <Linkedin className="w-5 h-5" />
               </a>
             )}
-            {member.socials.twitter && (
+            {member.socials.tiktok && (
               <a
-                href={member.socials.twitter}
+                href={member.socials.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
-                <Twitter className="w-5 h-5" />
+                <TikTokIcon className="w-5 h-5" />
               </a>
             )}
             {member.socials.facebook && (
@@ -78,6 +81,18 @@ const TeamMemberCard = ({ member, index }: { member: HomeTeamMember; index: numb
 };
 
 const TeamCarousel = () => {
+  const [api, setApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
   return (
     <section className="section-padding bg-card border-y border-border">
       <div className="container-custom">
@@ -89,6 +104,7 @@ const TeamCarousel = () => {
 
         <div className="relative px-12">
           <Carousel
+            setApi={setApi}
             opts={{
               align: "start",
               loop: true,

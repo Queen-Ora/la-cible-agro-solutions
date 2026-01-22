@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import {
@@ -6,6 +7,7 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import SectionTitle from "@/components/SectionTitle";
 import { testimonialsData, Testimonial } from "@/data/testimonialsData";
@@ -77,6 +79,18 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: Testimonial; ind
 };
 
 const TestimonialsCarousel = () => {
+  const [api, setApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
   return (
     <section className="section-padding bg-muted">
       <div className="container-custom">
@@ -88,6 +102,7 @@ const TestimonialsCarousel = () => {
 
         <div className="relative px-12">
           <Carousel
+            setApi={setApi}
             opts={{
               align: "start",
               loop: true,

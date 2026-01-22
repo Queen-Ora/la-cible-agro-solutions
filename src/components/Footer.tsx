@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
+import TikTokIcon from "@/components/icons/TikTokIcon";
 
 const Footer = () => {
   return (
@@ -69,7 +70,7 @@ const Footer = () => {
               {[
                 { icon: Facebook, label: "Facebook" },
                 { icon: Linkedin, label: "LinkedIn" },
-                { icon: Twitter, label: "Twitter" },
+                { icon: TikTokIcon, label: "TikTok" },
                 { icon: Instagram, label: "Instagram" },
               ].map((social) => (
                 <a

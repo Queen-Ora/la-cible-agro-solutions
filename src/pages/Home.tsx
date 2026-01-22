@@ -8,6 +8,7 @@ import ServiceCard from "@/components/ServiceCard";
 import StatCard from "@/components/StatCard";
 import TeamCarousel from "@/components/home/TeamCarousel";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
+import PricingSection from "@/components/home/PricingSection";
 import PaymentOptions from "@/components/PaymentOptions";
 import { servicesData } from "@/data/servicesData";
 import { statsData } from "@/data/statsData";
@@ -346,6 +347,9 @@ Notre rôle est simple : vous aider à prendre les bonnes décisions, au bon mom
 
       {/* Testimonials Carousel Section */}
       <TestimonialsCarousel />
+
+      {/* Pricing Section */}
+      <PricingSection />
 
       {/* Payment Section */}
       <section className="section-padding bg-card border-y border-border">

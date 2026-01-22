@@ -5,7 +5,7 @@ export interface HomeTeamMember {
   image: string;
   socials: {
     linkedin?: string;
-    twitter?: string;
+    tiktok?: string;
     facebook?: string;
   };
 }
@@ -24,7 +24,7 @@ export const homeTeamData: HomeTeamMember[] = [
     image: teamApelete,
     socials: {
       linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
+      tiktok: "https://tiktok.com",
       facebook: "https://facebook.com",
     },
   },
@@ -45,7 +45,7 @@ export const homeTeamData: HomeTeamMember[] = [
     image: teamAma,
     socials: {
       linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
+      tiktok: "https://tiktok.com",
     },
   },
   {
