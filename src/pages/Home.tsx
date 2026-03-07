@@ -41,18 +41,18 @@ const carouselSlides = [
   {
     image: heroConsulting,
     badge: "Conseil & Accompagnement personnalisé",
-    title: "Un accompagnement expert pour",
+    title: "Un accompagnement pour",
     highlight: "transformer votre vision en réalité",
     description:
-      "Nos consultants expérimentés vous guident à chaque étape de votre projet agricole, de l'étude de faisabilité jusqu'à la mise en œuvre opérationnelle.",
+      "Notre équipe pluridisciplinaire vous guide à chaque étape de votre projet agricole, de l'étude de faisabilité jusqu'à la mise en œuvre opérationnelle.",
   },
   {
     image: heroFormation,
     badge: "Formations professionnelles certifiées",
-    title: "Développez vos compétences avec",
-    highlight: "nos formations en agrobusiness",
+    title: "Développez vos compétences en",
+    highlight: "agrobusiness",
     description:
-      "Bénéficiez de programmes de formation adaptés à tous les niveaux pour maîtriser les techniques modernes de l'agriculture et de l'élevage.",
+      "Bénéficiez de nos programmes de formation adaptés à tous les niveaux pour maîtriser les techniques modernes de l'agriculture et de l'élevage.",
   },
 ];
 
@@ -308,9 +308,9 @@ Notre rôle est simple : vous aider à prendre les bonnes décisions, au bon mom
       <section className="section-padding bg-muted">
         <div className="container-custom">
           <SectionTitle
-            subtitle="Nos services"
-            title="Des solutions adaptées à vos besoins"
-            description="Découvrez notre gamme complète de services pour accompagner votre projet agricole de la conception à la réussite."
+            subtitle="Notre expertise"
+            title="Nos services"
+            description="La Cible SARL vous propose une gamme variée de services pour accompagner votre projet agricole de la conception à la réussite."
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
