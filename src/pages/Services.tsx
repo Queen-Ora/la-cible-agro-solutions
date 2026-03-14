@@ -4,7 +4,7 @@ import { ArrowRight, MessageSquare, Compass, Tractor, GraduationCap, LucideIcon,
 import { Button } from "@/components/ui/button";
 import SectionTitle from "@/components/SectionTitle";
 import { servicesData, Service } from "@/data/servicesData";
-import PaymentDropdown from "@/components/PaymentDropdown";
+
 
 
 import serviceConsultation from "@/assets/service-consultation.jpg";
