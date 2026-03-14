@@ -121,7 +121,12 @@ const Header = () => {
                 </Link>
               ))}
               <div className="flex flex-col gap-3 mt-4">
-                <PaymentDropdown variant="header" className="w-full" />
+                <Button asChild className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 animate-pulse-glow font-semibold w-full">
+                  <Link to="/formations" className="flex items-center justify-center gap-2">
+                    <GraduationCap className="w-4 h-4" />
+                    Formations
+                  </Link>
+                </Button>
                 <Button asChild className="btn-primary rounded-full">
                   <Link to="/appointment">Prendre un rendez-vous</Link>
                 </Button>

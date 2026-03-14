@@ -80,7 +80,7 @@ const ServiceDetailCard = ({ service, index }: { service: Service; index: number
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </Button>
-          <PaymentDropdown variant="service" />
+          
           {service.pdfFile && (
             <Button
               asChild
