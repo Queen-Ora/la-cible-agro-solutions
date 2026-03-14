@@ -76,7 +76,12 @@ const Header = () => {
 
         {/* CTA Buttons */}
         <div className="hidden lg:flex items-center gap-3">
-          <PaymentDropdown variant="header" />
+          <Button asChild className="rounded-full px-6 bg-accent text-accent-foreground hover:bg-accent/90 animate-pulse-glow font-semibold">
+            <Link to="/formations" className="flex items-center gap-2">
+              <GraduationCap className="w-4 h-4" />
+              Formations
+            </Link>
+          </Button>
           <Button asChild className="btn-primary rounded-full px-6">
             <Link to="/appointment">Prendre un rendez-vous</Link>
           </Button>
