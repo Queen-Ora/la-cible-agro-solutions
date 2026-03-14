@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import PaymentDropdown from "@/components/PaymentDropdown";
+import { GraduationCap } from "lucide-react";
 import headerLogo from "@/assets/header-logo.png";
 
 const navLinks = [
@@ -76,7 +76,12 @@ const Header = () => {
 
         {/* CTA Buttons */}
         <div className="hidden lg:flex items-center gap-3">
-          <PaymentDropdown variant="header" />
+          <Button asChild className="rounded-full px-6 bg-accent text-accent-foreground hover:bg-accent/90 animate-pulse-glow font-semibold">
+            <Link to="/formations" className="flex items-center gap-2">
+              <GraduationCap className="w-4 h-4" />
+              Formations
+            </Link>
+          </Button>
           <Button asChild className="btn-primary rounded-full px-6">
             <Link to="/appointment">Prendre un rendez-vous</Link>
           </Button>
@@ -116,7 +121,12 @@ const Header = () => {
                 </Link>
               ))}
               <div className="flex flex-col gap-3 mt-4">
-                <PaymentDropdown variant="header" className="w-full" />
+                <Button asChild className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 animate-pulse-glow font-semibold w-full">
+                  <Link to="/formations" className="flex items-center justify-center gap-2">
+                    <GraduationCap className="w-4 h-4" />
+                    Formations
+                  </Link>
+                </Button>
                 <Button asChild className="btn-primary rounded-full">
                   <Link to="/appointment">Prendre un rendez-vous</Link>
                 </Button>

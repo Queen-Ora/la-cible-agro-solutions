@@ -4,7 +4,7 @@ import { ArrowRight, MessageSquare, Compass, Tractor, GraduationCap, LucideIcon,
 import { Button } from "@/components/ui/button";
 import SectionTitle from "@/components/SectionTitle";
 import { servicesData, Service } from "@/data/servicesData";
-import PaymentDropdown from "@/components/PaymentDropdown";
+
 
 
 import serviceConsultation from "@/assets/service-consultation.jpg";
@@ -80,7 +80,7 @@ const ServiceDetailCard = ({ service, index }: { service: Service; index: number
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </Button>
-          <PaymentDropdown variant="service" />
+          
           {service.pdfFile && (
             <Button
               asChild
