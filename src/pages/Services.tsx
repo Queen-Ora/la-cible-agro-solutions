@@ -62,11 +62,7 @@ const ServiceDetailCard = ({ service, index }: { service: Service; index: number
           {service.longDescription}
         </p>
         <ul className="space-y-3 mb-6">
-          {[
-            "Expertise reconnue",
-            "Accompagnement personnalisé",
-            "Résultats mesurables",
-          ].map((item) => (
+          {service.keyPerks.map((item) => (
             <li key={item} className="flex items-center gap-3">
               <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
               <span className="text-foreground">{item}</span>
@@ -80,14 +76,19 @@ const ServiceDetailCard = ({ service, index }: { service: Service; index: number
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </Button>
-          
+
           {service.pdfFile && (
             <Button
               asChild
               variant="outline"
               className="rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             >
-              <a href={service.pdfFile} download target="_blank" rel="noopener noreferrer">
+              <a
+                href={service.pdfFile}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FileDown className="mr-2 w-4 h-4" />
                 {service.pdfLabel || "Télécharger PDF"}
               </a>

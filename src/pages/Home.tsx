@@ -51,7 +51,7 @@ const carouselSlides = [
     title: "Développez vos compétences en",
     highlight: "agrobusiness",
     description:
-      "Bénéficiez de nos programmes de formation adaptés à tous les niveaux pour maîtriser les techniques modernes de l'agriculture et de l'élevage.",
+      "Profitez de nos programmes de formation sur mesure pour faire de votre projet agricole, un réel succès",
   },
 ];
 

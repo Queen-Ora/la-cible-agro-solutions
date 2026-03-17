@@ -26,30 +26,21 @@ const About = () => {
                 Qui sommes-nous ?
               </h1>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                La Cible SARL est un cabinet de conseil spécialisé en
-                agrobusiness, fondé en 2021 par{" "}
-                <strong className="text-foreground">Apélété</strong>. La Cible
-                SARL est votre partenaire stratégique pour la réussite de vos
-                projets agricoles et agronomiques. Nous accompagnons les
-                porteurs de projets, exploitants, investisseurs, organisations
-                et institutions dans la conception, la structuration et le
-                développement de projets agricoles rentables, durables et
-                maîtrisés. Notre rôle est simple : vous aider à prendre les
-                bonnes décisions, au bon moment, en vous apportant une expertise
-                technique et stratégique adaptée à vos objectifs et aux réalités
-                du terrain. De l’idée initiale jusqu’à la mise en œuvre
-                opérationnelle, nous sécurisons chaque étape de votre projet
-                pour réduire les risques et maximiser les résultats.  Chez La
-                Cible SARL, nous combinons vision stratégique, analyse précise
-                et accompagnement personnalisé afin de transformer les défis
-                agricoles en opportunités concrètes de croissance. Nous
-                travaillons avec une approche orientée résultats, en mettant
-                l’accent sur la rentabilité, la durabilité et l’impact à long
-                terme. Choisir La Cible SARL, c’est bénéficier d’un partenaire
-                engagé, capable de vous guider avec clarté, rigueur et
-                efficacité pour faire de votre projet agricole un investissement
-                solide et performant.
+                QUI SOMMES NOUS?
+                La Cible SARL est un cabinet conseil spécialisé en agrobusiness et fondé en 2021 par Monsieur Apélété.<br/><br/>
+
+                Partenaire stratégique pour le réussite de vos projets agricoles, la Cible accompagne les porteurs de projets, des exploitants, des investisseurs et organisations dans la conception, la structuration et le développement vos exploitations agricoles.<br/><br/>
+
+                Notre rôle est de vous assurer à prendre les bonnes décisions au bon moment en vous apportant une expertise technique et stratégique adaptée à vos objectifs et aux réalités du terrain.<br/><br/>
+
+                De l’idée initiale à la mise en œuvre opérationnelle, nous sécurisons chaque étape de votre projet pour réduire les risques et maximiser les résultats.<br/><br/>
+
+                Chez la Cible,<br/>
+                Nous combinons vision stratégique, analyse précise et accompagnement personnalisé afin de transformer des défis agricoles en opportunités concrètes de croissance.<br/><br/>
+
+                Choisir la Cible, c’est bénéficier d’un partenaire engagé capable de vous guider avec clarté, rigueur et efficacité pour faire de votre projet agricole, un investissement solide et performant<br/><br/>
               </p>
+              
               <p className="text-muted-foreground leading-relaxed">
                 Avec une présence internationale couvrant l'Afrique, l'Europe,
                 l'Asie et les États-Unis, nous avons accompagné plus de 3 000
@@ -97,8 +88,8 @@ const About = () => {
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               />
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -111,7 +102,7 @@ const About = () => {
                 possède un potentiel immense qui ne demande qu'à être exploité
                 de manière professionnelle et durable.
               </motion.p>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -124,7 +115,7 @@ const About = () => {
                 à la gestion opérationnelle des fermes, en passant par la
                 formation et le conseil stratégique.
               </motion.p>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -158,7 +149,7 @@ const About = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="absolute -bottom-20 -right-20 w-80 h-80 bg-accent rounded-full blur-3xl"
         />
-        
+
         <div className="container-custom relative z-10">
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -190,7 +181,7 @@ const About = () => {
                 whileHover={{ y: -10, scale: 1.03 }}
                 className="bg-card rounded-xl p-8 shadow-soft text-center group cursor-pointer"
               >
-                <motion.div 
+                <motion.div
                   className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 relative"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
