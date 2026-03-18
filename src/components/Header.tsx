@@ -77,10 +77,10 @@ const Header = () => {
         {/* CTA Buttons */}
         <div className="hidden lg:flex items-center gap-3">
           <Button asChild className="rounded-full px-6 bg-accent text-accent-foreground hover:bg-accent/90 animate-pulse-glow font-semibold">
-            <Link to="/formations" className="flex items-center gap-2">
+            <a href="https://agrobusinessafrique2026.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               <GraduationCap className="w-4 h-4" />
               Formations
-            </Link>
+            </a>
           </Button>
           <Button asChild className="btn-primary rounded-full px-6">
             <Link to="/appointment">Prendre un rendez-vous</Link>
