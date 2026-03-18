@@ -42,10 +42,10 @@ const Formations = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+            <a href="http://agrobusinessafrique2026.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 hover:bg-accent/30 transition-colors cursor-pointer">
               <GraduationCap className="w-5 h-5 text-accent" />
-              <span className="text-accent font-medium text-sm">Formations professionnelles</span>
-            </div>
+              <span className="text-accent font-medium text-sm">Conférence-Paris 2026</span>
+            </a>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
               Nos Formations
             </h1>
